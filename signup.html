@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>AutoGreet | Sign Up</title>
+        <script type="text/javascript">
+            function validate()
+            {
+                if (document.getElementById("uname").value == "")
+                {
+                    alert("Enter User Name!");
+                    return false;
+                } else if (document.getElementById("uid").value == "")
+                {
+                    alert("Enter UserID!");
+                    return false;
+                } else if (document.getElementById("uid").value.indexOf(" ") >= 0)
+                {
+                    alert("UserID can not contain space!");
+                    return false;
+                } else if (document.getElementById("eid").value == "")
+                {
+                    alert("EmailID must contain @!");
+                    return false;
+                } else if (document.getElementById("pass").value != document.getElementById("cpass").value)
+                {
+                    alert("Password do not match!");
+                    return false;
+                } else if (document.getElementById("pass").value.length < 6)
+                {
+                    alert("Password length must be at least 6!");
+                    return false;
+                } else if (document.getElementById("dob").value == 0)
+                {
+                    alert("Enter date");
+                } else
+                    return true;
+            }
+        </script>
+    </head>
+   <body bgcolor=" #f2e6ff">
+        <?php include 'CreateDB.php';?>
+        <div style="background-color: #b3b3ff">
+        <h1 align="center" style="color: chartreuse" >AutoGreet</h1>
+        </div>
+        <form method="post" action="signup.php" onsubmit="return validate();">
+            <table align="center">
+                <tr>
+                    <td>
+                        <label>Name:</label>
+                    </td>
+                    <td>
+                        <input id="uname" name="name" type="text" required>
+                        <label style="color:red;"><sup>*</sup></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>User Name:</label>
+                    </td>
+                    <td>
+                        <input id="uid" name="username" type="text" required>
+                        <label style="color:red;"><sup>*</sup></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Email Id</label>
+                    </td>
+                    <td>
+                        <input id="eid" name="emaiId" type="text" required>
+                        <label style="color:red;"><sup>*</sup></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Phone No</label>
+                    </td>
+                    <td>
+                        <input id="pno" name="phoneno" type="text" required>
+                        <label style="color:red;"><sup>*</sup></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Password:</label>
+                    </td>
+                    <td>
+                        <input id="pass" name="password" type="password" required>
+                        <label style="color:red;"><sup>*</sup></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Confirm Password:</label>
+                    </td>
+                    <td>
+                        <input id="cpass" name="password" type="password" required>
+                        <label style="color:red;"><sup>*</sup></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Date of Birth:</label>
+                    </td>
+                    <td>
+                        <input type="date" id="dob" name="dob" required>
+                        <label style="color:red;"><sup>*</sup></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" name="submit" value="Sign Up" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
